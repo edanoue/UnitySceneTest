@@ -1,12 +1,14 @@
+// Copyright Edanoue, Inc. MIT License - see LICENSE.md
+
 #nullable enable
 #if UNITY_EDITOR
 
-using Edanoue.TestAPI;
+using Edanoue.SceneTest;
 
 /// <summary>
 /// Unity の Inspector のチェックボックスにより可否が決まるテストクラス
 /// </summary>
-class ExampleUnityPropertyBoolTest : EdaTestBehaviour
+class ExampleUnityPropertyBoolTest : SceneTestCaseBehaviour
 {
     public bool テストに成功するかどうか;
 

@@ -1,20 +1,14 @@
+// Copyright Edanoue, Inc. MIT License - see LICENSE.md
+
 #nullable enable
 
 #if UNITY_EDITOR
 
-using System.Collections;
-using UnityEngine.TestTools;
-using Edanoue.TestAPI;
+using Edanoue.SceneTest;
 
-class SimpleBoolTest : SceneLoadSuiteBase
+[UnitySceneTest("SceneTest_SimpleBoolTest.unity")]
+class SimpleBoolTest
 {
-    protected override string ScenePath => $"{ScriptDir()}/SceneTest_SimpleBoolTest.unity";
-
-    [UnityTest]
-    public IEnumerator RunSceneTest()
-    {
-        yield return RunTestAsync();
-    }
 }
 
 #endif

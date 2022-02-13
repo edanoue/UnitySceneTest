@@ -1,6 +1,8 @@
+// Copyright Edanoue, Inc. MIT License - see LICENSE.md
+
 #nullable enable
 
-namespace Edanoue.TestAPI
+namespace Edanoue.SceneTest.Interfaces
 {
     public readonly struct RunnerOptions
     {

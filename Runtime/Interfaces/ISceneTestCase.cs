@@ -1,12 +1,15 @@
-#nullable enable
-using System.Collections;
+// Copyright Edanoue, Inc. MIT License - see LICENSE.md
 
-namespace Edanoue.TestAPI
+#nullable enable
+
+using NUnit.Framework.Interfaces;
+
+namespace Edanoue.SceneTest.Interfaces
 {
     /// <summary>
     /// TestRunner から操作されるのためのインタフェース
     /// </summary>
-    public interface ITestCase
+    public interface ISceneTestCase
     {
         /// <summary>
         /// テストがまだ実行中かどうか
@@ -20,11 +23,6 @@ namespace Edanoue.TestAPI
         void OnRun();
 
         /// <summary>
-        /// キャンセル時に呼ばれるコールバック
-        /// </summary>
-        void OnCancel();
-
-        /// <summary>
         /// タイムアウト時に呼ばれるコールバック
         /// </summary>
         void OnTimeout();
@@ -32,7 +30,7 @@ namespace Edanoue.TestAPI
         /// <summary>
         /// テストレポートを取得する
         /// </summary>
-        ITestReport Report { get; }
+        ITestResult Result { get; }
 
         /// <summary>
         /// TestCase Local の Option を取得
