@@ -8,8 +8,8 @@ namespace Edanoue.SceneTest.Interfaces
 {
     public interface ISceneTestRunner
     {
-        IEnumerator RunAll(RunnerOptions? options = null);
+        IEnumerator RunAll(RunnerOptions options);
 
-        IEnumerator Run(string[] ids, RunnerOptions? options = null);
+        IEnumerator Run(string[] ids, RunnerOptions options);
     }
 }

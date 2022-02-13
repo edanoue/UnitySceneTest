@@ -21,7 +21,7 @@ namespace Edanoue.SceneTest
 
         #endregion
 
-        IEnumerator ISceneTestRunner.RunAll(RunnerOptions? inOptions = null)
+        IEnumerator ISceneTestRunner.RunAll(RunnerOptions options)
         {
             // 現在このRunner が実行中なら処理をスキップする
             if (_isRunning)
@@ -38,17 +38,6 @@ namespace Edanoue.SceneTest
             {
                 testcase.OnRun();
             }
-
-            // オプションが指定されていないならデフォルトのものを用意する
-            // 南: なんとなく Global のタイムアウトは 10秒 としています
-            RunnerOptions options = inOptions is null ? new RunnerOptions(10.0f) : inOptions.Value;
-
-            string optionsStr = "------------------\n";
-            optionsStr += "options\n";
-            optionsStr += "------------------\n";
-            optionsStr += $"+ globalTimeOutSeconds: {options.GlobalTimeoutSeconds}\n";
-            optionsStr += "\n";
-            Debug.Log(optionsStr);
 
             // 無限ループ防止のタイマーをセットアップ
             var _timeoutSeconds = options.GlobalTimeoutSeconds;
@@ -111,7 +100,7 @@ namespace Edanoue.SceneTest
             _isRunning = false;
         }
 
-        IEnumerator ISceneTestRunner.Run(string[] ids, RunnerOptions? options = null)
+        IEnumerator ISceneTestRunner.Run(string[] ids, RunnerOptions options)
         {
             yield return null;
         }

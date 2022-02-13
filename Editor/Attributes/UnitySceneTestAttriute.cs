@@ -13,7 +13,7 @@ using UnityEditor;
 
 namespace Edanoue.SceneTest
 {
-    [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
+    [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
     public class UnitySceneTestAttribute : NUnitAttribute, IFixtureBuilder
     {
 
@@ -88,7 +88,7 @@ namespace Edanoue.SceneTest
 
             // Hack for Unity Test Runner
             // この処理をやることで PlayMode Test が動作するようになる
-            TestCaseParameters parms = new TestCaseParameters(args: new object[1] { abspath })
+            TestCaseParameters parms = new TestCaseParameters(args: new object[] { abspath, fixture })
             {
                 ExpectedResult = new object(),
                 HasExpectedResult = true

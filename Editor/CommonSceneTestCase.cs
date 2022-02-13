@@ -5,6 +5,7 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEditor.SceneManagement;
+using NUnit.Framework.Internal;
 using Edanoue.SceneTest.Interfaces;
 
 namespace Edanoue.SceneTest
@@ -23,7 +24,7 @@ namespace Edanoue.SceneTest
             }
         }
 
-        public static IEnumerator RunTest(string sceneAbsPath)
+        public static IEnumerator RunTest(string sceneAbsPath, TestSuite fixture)
         {
             // 指定されたシーンを読み込む
             yield return LoadTestSceneAsync(sceneAbsPath);
@@ -36,45 +37,32 @@ namespace Edanoue.SceneTest
                 yield break;
             }
 
-            // 見つかったテストから Nunit 用の TestMethod を生成して Json で Library 以下にシリアライズする
-            /*
-            foreach (var r in GameObject.FindObjectsOfType<MonoBehaviour>().OfType<ISceneTestCase>())
-            {
-                // 独自の TestMethod を生成する
-                var suiteMethodInfo = test.Method;
-                //
-                var parentSuite = (Test)test.Parent;
-
-                TestMethod testMethod = new TestMethod(test.Method, parentSuite);
-                testMethod.Name = "mock";
-                tests.Add(testMethod);
-            }
-            */
-
             // テストランナーを生成する
             ISceneTestRunner runner = new SceneTestRunner(caseCollecter);
 
-            // Suite の方に記述されてる PropertieBag にアクセスする
-            /*
-            var testSuiteProperties = test.Parent.Properties;
+            // Suite の PropertieBag にアクセスする
+            var testSuiteProperties = fixture.Properties;
+
             // Timeout を取得する
             // Default は 10 秒としておく
             float timeoutSec = 10f;
 
             // Timeout が Suite に存在したら
-            if (testSuiteProperties.ContainsKey("Timeout"))
+            if (testSuiteProperties.ContainsKey(PropertyNames.Timeout))
             {
                 // こちらでも 設定する
                 // ms が指定されているので, s に変換する
-                var timeoutMs = (int)testSuiteProperties.Get("Timeout");
+                var timeoutMs = (int)testSuiteProperties.Get(PropertyNames.Timeout);
                 timeoutSec = (float)timeoutMs / 1000f;
                 // こちら側は 0.1 秒だけ短くしておく
-                timeoutSec = Mathf.Max(0.01f, timeoutSec - 0.1f);
+                timeoutSec = UnityEngine.Mathf.Max(0.01f, timeoutSec - 0.1f);
             }
-            */
 
             // テストを実行する
-            yield return runner.RunAll(new RunnerOptions(10));
+            yield return runner.RunAll(new RunnerOptions()
+            {
+                GlobalTimeoutSeconds = timeoutSec
+            });
 
             // 指定されたシーンのアンロードを行う
             yield return UnloadTestSceneAsync(sceneAbsPath);
