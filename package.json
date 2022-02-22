@@ -22,4 +22,13 @@
         "email": "contact@edanoue.com",
         "url": "https://edanoue.com"
     }
+  ],
+  "keywords": [
+    "testing"
+  ],
+  "author": {
+    "name": "Edanoue, Inc.",
+    "email": "contact@edanoue.com",
+    "url": "https://edanoue.com"
+  }
 }
