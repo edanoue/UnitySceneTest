@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using NUnit.Framework.Interfaces;
 using NUnit.Framework.Internal;
 
-namespace Edanoue.SceneTest
+namespace SceneTest
 {
     /// <summary>
     /// 

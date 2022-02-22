@@ -7,7 +7,7 @@ using UnityEngine;
 using NUnit.Framework.Interfaces;
 using Edanoue.SceneTest.Interfaces;
 
-namespace Edanoue.SceneTest
+namespace SceneTest
 {
     /// <summary>
     /// テストケース として振る舞う拡張 MonoBehaviour クラス

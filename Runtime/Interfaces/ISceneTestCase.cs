@@ -4,7 +4,7 @@
 
 using NUnit.Framework.Interfaces;
 
-namespace Edanoue.SceneTest.Interfaces
+namespace SceneTest.Interfaces
 {
     /// <summary>
     /// TestRunner から操作されるのためのインタフェース

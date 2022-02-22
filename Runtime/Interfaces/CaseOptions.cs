@@ -4,7 +4,7 @@
 
 using System;
 
-namespace Edanoue.SceneTest.Interfaces
+namespace SceneTest.Interfaces
 {
     /// <summary>
     /// 各 TestCase に local に適用されるオプション
