@@ -1,26 +1,17 @@
 {
-    "name": "com.edanoue.scenetest",
-    "description": "Scene Test",
-    "version": "2.0.0",
-    "displayName": "Scene Test",
-    "unity": "2021.2",
-    "dependencies": {
-        "com.unity.test-framework": "1.1.30"
-    },
-    "samples": [
-        {
-            "displayName": "Unit Test Samples",
-            "description": "",
-            "path": "Samples~/Unit Test Samples"
-        }
-    ],
-    "keywords": [
-        "edanoue"
-    ],
-    "author": {
-        "name": "Edanoue, Inc.",
-        "email": "contact@edanoue.com",
-        "url": "https://edanoue.com"
+  "name": "com.edanoue.scenetest",
+  "description": "Scene Test",
+  "version": "2.0.0",
+  "displayName": "Scene Test",
+  "unity": "2021.2",
+  "dependencies": {
+    "com.unity.test-framework": "1.1.30"
+  },
+  "samples": [
+    {
+      "displayName": "Unit Test Samples",
+      "description": "",
+      "path": "Samples~/Unit Test Samples"
     }
   ],
   "keywords": [
